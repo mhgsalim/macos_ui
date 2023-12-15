@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
@@ -263,7 +264,7 @@ class _ToolBarState extends State<ToolBar> {
         ),
       ),
       child: _WallpaperTintedAreaOrBlurFilter(
-        enableWallpaperTintedArea: kIsWeb ? false : !widget.enableBlur,
+        enableWallpaperTintedArea: kIsWeb || Platform.isWindows ? false : !widget.enableBlur,
         isWidgetVisible: widget.allowWallpaperTintingOverrides,
         backgroundColor: theme.canvasColor,
         widgetOpacity: widget.decoration?.color?.opacity,
