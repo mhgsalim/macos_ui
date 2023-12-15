@@ -6,7 +6,7 @@ import 'package:macos_ui/macos_ui.dart';
 import 'package:macos_ui/src/layout/wallpaper_tinting_settings/global_wallpaper_tinting_settings.dart';
 import 'package:macos_ui/src/library.dart';
 import 'package:macos_window_utils/widgets/transparent_macos_sidebar.dart';
-
+import 'dart:io';
 /// A basic frame layout.
 ///
 /// Provides a body for main content, via [child], and a [sidebar] for
@@ -265,7 +265,7 @@ class _MacosWindowState extends State<MacosWindow> {
                     minHeight: height,
                     maxHeight: height,
                   ).normalize(),
-                  child: kIsWeb ? ColoredBox(
+                  child: kIsWeb || Platform.isWindows ? ColoredBox(
                     color: theme.canvasColor,
                     child: Column(
                       children: [
